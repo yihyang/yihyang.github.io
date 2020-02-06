@@ -1,0 +1,17 @@
+Within the workflow there are StepTemplates, with the following attributes:
+
+| Name | Type | Description |
+|---|---|---|
+| name | string | The name of the step |
+| state | string | The states of the step |
+| data | json | The property to contains the data that was stored |
+
+
+We have to consider transition of the states within each steps, for this we will be having a StepTransition, with contained the following attributes:
+
+| Name | Type | Description |
+|---|---|---|
+| step_name | string | The name of the step |
+| from_state | string | The current state of the step |
+| to_state | string | The state of the step that will be transitioned into |
+| condition | json | The condition which will allow the state of the step to be transited from
