@@ -1,3 +1,39 @@
+---
+layout: post
+title:  "Modeling Workflow Part 2: Modelling Process"
+date:   2020-02-24 00:40:00 +0800
+categories: [blog]
+tags: [application, database design, laravel, system design, workflow]
+---
+
+Welcome back to another post of modeling workflow. In this post we are going to model the process within a workflow.
+
+Let's refer to our problem statement from previous flow:
+
+**E Corp Bank** wanted to automated their workflow for their Transaction which included a process of few steps that included approvals and change of states based on different condition.
+
+1. When a new transaction with the type "Personal Loan" is selected, and:
+    1. If the amount is less than $10,000, it will start the "Low Loan Amount" workflow
+    2. If the amount is more than or equal to $10,000 but less than $50,000, it will start the "Medium Loan Amount" workflow
+    3. If the amount is more than or equal to $50,000, it will start the "High Loan Amount" workflow
+
+#### "Low Loan Amount" Workflow
+
+Let's assume the "Low Loan Amount" workflow will be fairly straight forward as implemented by it's name.
+
+I'm going to assume that the "Low Loan Amount" workflow contain the following process:
+
+1. Step 1 - Gathering Information
+    - Gather the personal information of the user
+        - Name, ID Number, Contact Number and Address
+    - Gather the income information of the user
+        - Job position, income and etc
+2. Step 2 - Loan Information
+    - Loan amount
+    - Tenure
+    - Calculate the monthly instalment from it
+
+
 Within the workflow there are StepTemplates, with the following attributes:
 
 | Name | Type | Description |
